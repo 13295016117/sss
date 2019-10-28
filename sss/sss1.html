@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<title>福建十三水</title>
+		<meta charset="utf-8">
+		<script type="text/javascript">
+		var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+		httpRequest.open('POST', 'http://api.revth.com/auth/register2', true); //第二步：打开连接/***发送json格式文件必须设置请求头 ；如下 - */
+		httpRequest.setRequestHeader("Content-Type":"application/json");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+		var obj={"username:" "password:" "student_number:" "student_password:"};
+		var jsonStr = JSON.stringify(obj);//转为JSON字符串
+		var z=document.getElementById("username");
+		obj[username]=z.innerHTML;
+		z=document.getElementById("password");
+		document.write(z);
+		obj[password]=z.innerHTML;
+		z=document.getElementById("student_number");
+		obj[student_number]=innerHTML;
+		z=document.getElementById("student_password");
+		obj[student_password]=innerHTML;
+		httpRequest.send(JSON.stringify(obj));//发送请求 将json写入send中
+		httpRequest.onreadystatechange = function() //请求后的回调接口，可将请求成功后要执行的程序写在其中
+		{
+			if (httpRequest.readyState == 4 && httpRequest.status == 200)//验证请求是否发送成功 
+			{
+			var json = httpRequest.responseText;//获取到服务端返回的数据
+			console.log(json);
+			}
+		};
+		<style type="text/css">
+			body{
+			background-image:url(img/1.jpg);
+			background-size:cover;
+			}
+			div{
+			font-size:60px;
+			color:black;
+			text-align:center;
+			}
+			.p{text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<div><p>福建十三水</p></div>
+		<form class="p" method="post" action="sss3.html">
+			<br><br><br><br>
+			账号：<input type="text" name="username"placeholder="请输入用户名">
+			<br><br><br>
+			密码：<input type="password" name="password" placeholder="请输入密码">  
+			<br><br>
+			<p><pre>     <input type="submit"value="登陆">    <a href="sss2.html"><input type="button"value="注册"></a></pre></p>
+		</form>
+		
+	</body>
+</html>
